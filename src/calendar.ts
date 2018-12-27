@@ -291,6 +291,7 @@ export enum Step {
                 [preserveScrollPosition]="preserveScrollPosition"
                 [lockSwipeToPrev]="lockSwipeToPrev"
                 [lockSwipes]="lockSwipes"
+                [onlyExternal]="onlyExternal"
                 [startHour]="startHour"
                 [endHour]="endHour"
                 [spaceBetween]="spaceBetween"
@@ -396,6 +397,7 @@ export class CalendarComponent implements OnInit {
     @Input() preserveScrollPosition:boolean = false;
     @Input() lockSwipeToPrev:boolean = false;
     @Input() lockSwipes:boolean = false;
+    @Input() onlyExternal:boolean = false;
     @Input() locale:string = "";
     @Input() startHour:number = 0;
     @Input() endHour:number = 24;
