@@ -394,6 +394,7 @@ export class DayViewComponent implements ICalendarComponent, OnInit, OnChanges {
     @Input() preserveScrollPosition:boolean;
     @Input() lockSwipeToPrev:boolean;
     @Input() lockSwipes:boolean;
+    @Input() onlyExternal:boolean;
     @Input() startHour:number;
     @Input() endHour:number;
     @Input() spaceBetween:number;
@@ -454,6 +455,10 @@ export class DayViewComponent implements ICalendarComponent, OnInit, OnChanges {
             this.slider.lockSwipes(true);
         }
 
+        if (this.onlyExternal) {
+            this.slider.onlyExternal = true;
+        }
+
         this.refreshView();
         this.hourColumnLabels = this.getHourColumnLabels();
 
@@ -498,6 +503,12 @@ export class DayViewComponent implements ICalendarComponent, OnInit, OnChanges {
         if (lockSwipes) {
             this.slider.lockSwipes(lockSwipes.currentValue);
         }
+
+
+        let onlyExternal = changes['onlyExternal'];
+        if (onlyExternal) {
+            this.slider.onlyExternal = onlyExternal.currentValue;
+        }        
     }
 
     ngOnDestroy() {
